@@ -21,6 +21,24 @@ async def list_reviews(skip: int = 0, limit: int = 20, db: AsyncSession = Depend
     result = await db.execute(select(MovieReview).offset(skip).limit(limit))
     return result.scalars().all()
 
+
+############################
+@api_router.post("/reviews", response_model=MovieReviewSchema, tags=["reviews"])
+async def create_review(review_data: MovieReviewSchema, db: AsyncSession = Depends(get_db)):
+    """Cria uma nova avaliação para um filme específico."""
+    new_review = MovieReview(
+        sk_movie_id=review_data.sk_movie_id,
+        nome=review_data.nome,
+        nota=review_data.nota,
+        comentario=review_data.comentario
+    )
+    db.add(new_review)
+    await db.commit()
+    await db.refresh(new_review)
+    return new_review
+
+
+
 # 3. Rota de Performances (fica diretamente em /api/v1/performances)
 @api_router.get("/performances", response_model=list[FactMoviePerformanceSchema], tags=["performances"])
 async def list_performances(skip: int = 0, limit: int = 20, db: AsyncSession = Depends(get_db)):

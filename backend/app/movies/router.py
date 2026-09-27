@@ -14,7 +14,7 @@ from app.movies.schemas import (
 router = APIRouter()
 
 @router.get("/", response_model=list[MovieResponseSchema])
-async def list_movies(skip: int = 0, limit: int = 20, db: AsyncSession = Depends(get_db)):
+async def list_movies(skip: int = 0, limit: int = 500, db: AsyncSession = Depends(get_db)):
     """Lista os filmes com paginação e carregamento das relações (géneros e produtoras)."""
     query = (
         select(DimMovie)
@@ -41,4 +41,19 @@ async def get_movie_by_id(sk_movie_id: str, db: AsyncSession = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Filme não encontrado.")
     
     return movie
+
+# Rota para criar uma nova avaliação para filmes
+@router.post("/reviews", response_model=MovieReviewSchema)
+async def create_review(review_data: MovieReviewSchema, db: AsyncSession = Depends(get_db)):
+    """Cria uma nova avaliação para um filme específico."""
+    new_review = MovieReview(
+        sk_movie_id=review_data.sk_movie_id,
+        nome=review_data.nome,
+        nota=review_data.nota,
+        comentario=review_data.comentario
+    )
+    db.add(new_review)
+    await db.commit()
+    await db.refresh(new_review)
+    return new_review
 
