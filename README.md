@@ -114,7 +114,7 @@ python -m pytest testes_automatizados
 ```
 
 ![Teste automatizado executado na apliacação:](assets/teste_automatizado.png)
-* **Teste_executado**: Na captura acima temos a execucção bem sucedida do file do teste automtizado implementado.
+* **Teste_executado**: Na captura acima temos a execução bem sucedida do file do teste automtizado implementado.
 
 ## ✨ Funcionalidades da Aplicação
 
