@@ -6,6 +6,8 @@ export const movieService = {
   async getMovies(): Promise<Movie[]> {
     const response = await api.get('/api/v1/movies');
     return response.data;
+
+  
   },
 
   // Função para buscar reviews diretamente da rota específica do filme

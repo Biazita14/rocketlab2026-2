@@ -5,10 +5,7 @@ import api from './services/api';
 import { MovieForm } from './componentes/MovieForm';
 import { MovieList } from './componentes/MovieList';
 
-
-
 export function App() {
-  
   const [showAddMovieModal, setShowAddMovieModal] = useState(false);
   const [movieToEdit, setMovieToEdit] = useState<any | null>(null); // Novo estado para edição
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -112,7 +109,13 @@ export function App() {
     <div style={{ fontFamily: 'Arial, sans-serif', padding: '40px', maxWidth: '850px', margin: '0 auto' }}>
       <h1>Rocket Lab - Dashboard de Filmes</h1>
       
-      {loading && <p>A carregar painel...</p>}
+      {/* 1. Loading mais amigável */}
+      {loading && (
+        <div style={{ textAlign: 'center', padding: '50px', color: '#007bff', fontWeight: 'bold' }}>
+          <p>Carregando filmes, por favor aguarde...</p>
+        </div>
+      )}
+      
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {!loading && !error && (
@@ -144,7 +147,7 @@ export function App() {
             />
           )}
 
-          <div style={{ display: 'flex', gap: '15px', marginBottom: '25px', flexWrap: 'wrap', background: '#f1f1f1', padding: '15px', borderRadius: '8px' }}>
+          <div style={{ display: 'flex', gap: '15px', marginBottom: '15px', flexWrap: 'wrap', background: '#f1f1f1', padding: '15px', borderRadius: '8px' }}>
             <input 
               type="text" 
               placeholder="Pesquisar filme por nome..." 
@@ -178,15 +181,27 @@ export function App() {
             </select>
           </div>
 
-          <MovieList 
-            movies={filteredAndSortedMovies}
-            reviewsMap={reviewsMap}
-            selectedMovieId={selectedMovieId}
-            onToggleReviews={handleToggleReviews}
-            onReviewAdded={handleNewReviewAdded}
-            onMovieChanged={fetchData}
-            onEditMovie={handleEditMovie}
-          />
+          {/* 2. Contador de Filmes Exibidos */}
+          <p style={{ fontSize: '14px', color: '#555', marginBottom: '20px', marginLeft: '5px' }}>
+            A exibir <strong>{filteredAndSortedMovies.length}</strong> filmes encontrados
+          </p>
+
+          {/* 3. Feedback visual se a lista estiver vazia */}
+          {filteredAndSortedMovies.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '40px', background: '#f9f9f9', borderRadius: '8px', color: '#666' }}>
+              <p>🎬 Nenhum filme encontrado com esses critérios.</p>
+            </div>
+          ) : (
+            <MovieList 
+              movies={filteredAndSortedMovies}
+              reviewsMap={reviewsMap}
+              selectedMovieId={selectedMovieId}
+              onToggleReviews={handleToggleReviews}
+              onReviewAdded={handleNewReviewAdded}
+              onMovieChanged={fetchData}
+              onEditMovie={handleEditMovie}
+            />
+          )}
         </>
       )}
     </div>
