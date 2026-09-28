@@ -126,6 +126,10 @@ python -m pytest testes_automatizados
 
 * **Cadastro de filmes**: Na imagem podemos ver que foi possível cadastrar um novo filmes na base de dados (Interestelar), além disso também vemos o cadastro de reviews em novos filmes do banco funcionando corretamente.
 
+![Descricao](assets/filtro.png)
+
+* **Uso de filtros**: Na imagem podemos ver que foi possível fazer uma pesquisa por filtros de gêneros dos filmes, sendo o print uma captura de busca de filmes de comédia.
+
 
 
 
