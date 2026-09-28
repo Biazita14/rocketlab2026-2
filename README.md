@@ -1,29 +1,29 @@
 # RocketLab 2026.2 — repositório base
 
-Base inicial para evoluir a atividade do RocketLab 2026.2. Ela preserva a organização do backend,
-o modelo relacional do catálogo de filmes em SQLAlchemy 2.0 e o histórico de
-migrações com Alembic, sem incluir interface, dados CSV, endpoints de negócio
-ou rotinas de carga.
+# 🎬 Rocket Lab - Dashboard de Filmes
 
-> **Nota:** `RocketLab` é apenas o nome de referência desta base. O diretório,
-> nome do pacote, título da API e arquivo do banco podem ser renomeados para o
-> que preferirem; eles não representam uma exigência da
-> estrutura-base.
+Repositório completo para a atividade do RocketLab, contendo a API backend em FastAPI e a interface frontend em React (TypeScript).
 
-## Estrutura
+---
+
+## 📂 Estrutura do Projeto
 
 ```text
 .
 ├── backend/
 │   ├── app/
-│   │   ├── api/v1/        # ponto de composição dos futuros routers
-│   │   ├── core/          # configurações e logging
-│   │   ├── db/            # Base ORM, engine e sessões
-│   │   └── movies/        # modelos SQLAlchemy do domínio de filmes
-│   ├── migrations/        # ambiente e revisões Alembic
-│   └── tests/
+│   │   ├── api/v1/         # Rotas e endpoints da API
+│   │   ├── core/           # Configurações e logging
+│   │   ├── db/             # Base ORM, engine e sessões
+│   │   └── movies/         # Modelos SQLAlchemy do domínio de filmes
+│   ├── migrations/         # Ambiente e revisões Alembic
+│   └── tests/              # Testes automatizados (pytest)
+├── frontend/
+│   ├── src/
+│   │   ├── componentes/    # Componentes React (MovieList, MovieForm, etc.)
+│   │   ├── services/       # Comunicação com a API (movieService.ts)
+│   │   └── types/          # Tipagens TypeScript
 └── README.md
-```
 
 ## Execução
 
