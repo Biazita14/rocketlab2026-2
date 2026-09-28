@@ -122,7 +122,7 @@ python -m pytest testes_automatizados
 * **Avaliações (Reviews)**: Visualização e envio de avaliações por filme.
 * **Polimento de UX**: Estados de carregamento amigáveis, contador de filmes encontrados e tratamento para listas vazias.
 
-![Teste automatizado executado na apliacação:](assets/cadastro de filme com review minha.png)
+![Descricao](assets/cadastro de filme com review minha.png)
 
 
 
