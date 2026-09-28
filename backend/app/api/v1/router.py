@@ -16,9 +16,14 @@ api_router.include_router(movies_router, prefix="/movies", tags=["movies"])
 
 # 2. Rota de Reviews (fica diretamente em /api/v1/reviews)
 @api_router.get("/reviews", response_model=list[MovieReviewSchema], tags=["reviews"])
-async def list_reviews(skip: int = 0, limit: int = 20, db: AsyncSession = Depends(get_db)):
+async def list_reviews(skip: int = 0, limit: int = 1000, db: AsyncSession = Depends(get_db)):
     """Lista as avaliações dos utilizadores com paginação."""
-    result = await db.execute(select(MovieReview).offset(skip).limit(limit))
+    result = await db.execute(
+        select(MovieReview)
+        .order_by(MovieReview.created_at.desc()) # Garante que as mais novas aparecem primeiro
+        .offset(skip)
+        .limit(limit)
+    )
     return result.scalars().all()
 
 

@@ -1,6 +1,8 @@
 from datetime import date
 from decimal import Decimal
 from pydantic import BaseModel, ConfigDict
+from datetime import datetime, date  # Certifique-se de que datetime está importado
+from pydantic import BaseModel
 
 class GenreSchema(BaseModel):
     sk_genre_id: str
@@ -32,11 +34,15 @@ class MovieResponseSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 #################### adicao de schemas 
+
+
 class MovieReviewSchema(BaseModel):
+    sk_movie_review_id: str | None = None
     sk_movie_id: str
     nome: str | None = None
     nota: float | None = None
     comentario: str | None = None
+    created_at: datetime | None = None  # Corrigido de str para datetime
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -55,3 +61,12 @@ class FactMoviePerformanceSchema(BaseModel):
     qtd_imdb: int | None = None   # Alterado de str para int (erro antes)
 
     model_config = ConfigDict(from_attributes=True)
+
+
+
+class MovieCreateSchema(BaseModel):
+    titulo: str
+    diretor: str | None = None
+    ano: int | None = None
+    poster: str | None = None
+    sinopse: str | None = None
