@@ -124,6 +124,8 @@ python -m pytest testes_automatizados
 
 ![Descricao](assets/cadastro.png)
 
+* **Cadastro de filmes**: Na imagem podemos ver que foi possível cadastrar um novo filmes na base de dados (Interestelar), além disso também vemos o cadastro de reviews em novos filmes do banco funcionando corretamente.
+
 
 
 
