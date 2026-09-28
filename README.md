@@ -29,19 +29,6 @@ Repositório completo para a atividade do RocketLab, contendo a API backend em F
 
 Requer Python 3.11 ou superior.
 
-```bash
-cd backend
-python3 -m venv .venv
-.venv/bin/pip install -e ".[dev]"
-cp .env.example .env
-.venv/bin/alembic upgrade head
-.venv/bin/uvicorn app.main:app --reload
-```
-
-A API mínima ficará disponível em `http://localhost:8000`; use
-`http://localhost:8000/docs` para a documentação automática. O endpoint
-`GET /health` permite conferir se a aplicação iniciou corretamente.
-
 ## Banco de dados e migrações
 
 O modelo usa um esquema estrela para o catálogo de filmes:
@@ -84,6 +71,9 @@ cp .env.example .env
 .venv/bin/uvicorn app.main:app --reload
 
 ```
+A API mínima ficará disponível em `http://localhost:8000`; use
+`http://localhost:8000/docs` para a documentação automática. O endpoint
+`GET /health` permite conferir se a aplicação iniciou corretamente.
 
 
 ### 1. 2. Configurar e Executar o Frontend:
@@ -122,12 +112,13 @@ Certifique-se de que o ambiente virtual está ativado e execute o seguinte coman
 python -m pytest testes_automatizados
 
 ```
+![Descrição](assets/teste_automatizado2.png)
 ## ✨ Funcionalidades da Aplicação
 
 * **Backend Robusto**: Arquitetura FastAPI com esquema estrela via SQLAlchemy e migrações geridas pelo Alembic.
 * **Gestão de Filmes**: Listagem, criação, edição e remoção de filmes.
 * **Filtros e Ordenação**: Pesquisa por nome em tempo real, filtro por gêneros e ordenação dinâmica (Título e Ano).
 * **Avaliações (Reviews)**: Visualização e envio de avaliações por filme.
-* **Polimento de UX**: Estados de carregamento amigáveis, contador de filmes encontrados e tratamento elegante para listas vazias.
+* **Polimento de UX**: Estados de carregamento amigáveis, contador de filmes encontrados e tratamento para listas vazias.
 
 
