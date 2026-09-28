@@ -23,6 +23,7 @@ Repositório completo para a atividade do RocketLab, contendo a API backend em F
 │   │   ├── componentes/    # Componentes React (MovieList, MovieForm, etc.)
 │   │   ├── services/       # Comunicação com a API (movieService.ts)
 │   │   └── types/          # Tipagens TypeScript
+                            # no src temos o App.tsx orquestrando os componentes
 └── README.md
 
 ## Execução
