@@ -112,7 +112,7 @@ Certifique-se de que o ambiente virtual está ativado e execute o seguinte coman
 python -m pytest testes_automatizados
 
 ```
-![Descrição](assets/teste_automatizado2.png)
+![Teste automatizado executado na apliacação:](assets/teste_automatizado.png)
 ## ✨ Funcionalidades da Aplicação
 
 * **Backend Robusto**: Arquitetura FastAPI com esquema estrela via SQLAlchemy e migrações geridas pelo Alembic.
@@ -120,5 +120,7 @@ python -m pytest testes_automatizados
 * **Filtros e Ordenação**: Pesquisa por nome em tempo real, filtro por gêneros e ordenação dinâmica (Título e Ano).
 * **Avaliações (Reviews)**: Visualização e envio de avaliações por filme.
 * **Polimento de UX**: Estados de carregamento amigáveis, contador de filmes encontrados e tratamento para listas vazias.
+
+
 
 
