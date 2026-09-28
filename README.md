@@ -131,7 +131,7 @@ python -m pytest testes_automatizados
 
 ![Descricao](assets/filtro.png)
 
-* **Uso de filtros**: Na imagem podemos ver que foi possível fazer uma pesquisa por filtros de gêneros dos filmes, sendo o print uma captura de busca de filmes de comédia.
+* **Uso de filtros**: Na imagem podemos ver que foi possível fazer uma pesquisa por filtros de gêneros dos filmes, sendo o print uma captura da busca por filmes de comédia.
 
 
 
